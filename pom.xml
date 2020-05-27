@@ -8,5 +8,12 @@
     <artifactId>JavaRookie</artifactId>
     <version>1.0.1</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+    </dependencies>
 
 </project>
