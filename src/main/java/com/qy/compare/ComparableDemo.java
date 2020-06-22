@@ -8,13 +8,13 @@ import java.util.Comparator;
  */
 public class ComparableDemo implements Comparable<ComparableDemo>  {
 
-    private int x;
+    private int x;//比较者
 
     /**
      * 1、比较者大于被比较者，那么返回正整数
      * 2、比较者等于被比较者，那么返回0
      * 3、比较者小于被比较者，那么返回负整数
-     * @param o
+     * @param o 被比较者
      * @return
      */
     @Override
