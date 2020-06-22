@@ -17,7 +17,6 @@ public class ComparableDemo implements Comparable<ComparableDemo>  {
      * @param o 被比较者
      * @return
      */
-    @Override
     public int compareTo(ComparableDemo o) {
         return x - o.x;
     }
