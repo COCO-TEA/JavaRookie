@@ -7,7 +7,7 @@ import org.apache.curator.retry.RetryNTimes;
 
 import java.util.concurrent.TimeUnit;
 
-public class Demo {
+public class ZKLockDemo {
 
     private static String ZK_ADDRESS = "39.105.162.159:12181,39.105.162.159:12182,39.105.162.159:12183";
     private static final String ZK_LOCK_PATH = "/zktest";
