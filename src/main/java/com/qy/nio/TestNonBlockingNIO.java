@@ -8,6 +8,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.Set;
 
 public class TestNonBlockingNIO {
@@ -24,8 +25,21 @@ public class TestNonBlockingNIO {
         ByteBuffer buf = ByteBuffer.allocate(1024);
 
         //4.发送数据给服务端
-        buf.put(new String("dsfsafdsf").getBytes());
+//        Scanner scan = new Scanner(System.in);
+//
+//        while (scan.hasNext()) {
+//            String str = scan.next();
+//            buf.put((new Date().toString() +"\n"+str).getBytes());
+//            buf.flip();
+//            sChannel.write(buf);
+//            buf.clear();
+//        }
 
+        String str = "Fasdfadsf";
+        buf.put((new Date().toString() +"\n"+str).getBytes());
+        buf.flip();
+        sChannel.write(buf);
+        buf.clear();
         //5.关闭通道
         sChannel.close();
     }
@@ -76,6 +90,8 @@ public class TestNonBlockingNIO {
 
                     int len = 0;
                     while((len = sChannel.read(buf)) > 0 ){
+                        System.out.println("aaaaaaaaaa");
+
                         buf.flip();
                         System.out.println(new String(buf.array(), 0, len));
                         buf.clear();
