@@ -1,12 +1,8 @@
 package com.qy.compare;
 
-import com.qy.Student;
+import com.qy.bean.Student;
 
 import java.util.Comparator;
-import java.util.function.Function;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
 
 /**
  * Comparator 被认为是“外比较器”，我们如果需要控制某个类的次序，而该类本身不支持排序(即没有实现Comparable接口)，

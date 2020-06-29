@@ -1,6 +1,6 @@
 package com.qy.compare;
 
-import com.qy.Student;
+import com.qy.bean.Student;
 
 import java.util.*;
 

@@ -1,11 +1,5 @@
 package com.qy.collection;
 
-import com.qy.Student;
-import com.qy.compare.ComparatorDemo;
-
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-
 public class Main {
 
     public static void main(String[] args) throws Exception {
@@ -46,13 +40,13 @@ public class Main {
 
         //Class.forName 会执行对象的静态变量、静态方法块
         try {
-            Class<?> aClass = Class.forName("com.qy.Student");
+            Class<?> aClass = Class.forName("com.qy.bean.Student");
             aClass.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
         //loadClass 只将对象加载入JVM中，不进行(验证-准备-解析)阶段
-        Class<?> aClass = ClassLoader.getSystemClassLoader().loadClass("com.qy.Student");
+        Class<?> aClass = ClassLoader.getSystemClassLoader().loadClass("com.qy.bean.Student");
         aClass.newInstance();
         System.out.println(aClass.newInstance().toString());
     }

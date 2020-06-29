@@ -1,4 +1,4 @@
-package com.qy;
+package com.qy.bean;
 
 public class Student {
 
