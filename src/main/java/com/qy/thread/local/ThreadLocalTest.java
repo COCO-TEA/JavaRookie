@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class ThreadLocalTest {
 
     public static void main(String[] args) {
+
         ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("thread %d").build();
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(20, 20, 01,
                 TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>(1024));
@@ -22,13 +23,16 @@ public class ThreadLocalTest {
 //                    () -> System.out.println(DateUtilNotSafe.parse("2019-02-02 10:10:01"))
                     () -> System.out.println(DateUtilSafe.parse("2019-02-02 10:10:01"))
             );
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
 
         threadPoolExecutor.shutdown();
+
+        System.gc();
+
+        try {
+            Thread.sleep(10000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

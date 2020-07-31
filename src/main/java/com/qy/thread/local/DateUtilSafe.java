@@ -11,24 +11,28 @@ import java.util.function.Supplier;
  */
 public class DateUtilSafe {
 
-//    private static final ThreadLocal<DateFormat> THREAD_LOCK = ThreadLocal.withInitial(
-//            () -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-//    );
-
     private static final ThreadLocal<DateFormat> THREAD_LOCK = ThreadLocal.withInitial(
-            new Supplier<DateFormat>() {
-                @Override
-                public DateFormat get() {
-                    return new SimpleDateFormat();
-                }
-            }
+            () -> new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
     );
+
+//    private static final ThreadLocal<DateFormat> THREAD_LOCK = ThreadLocal.withInitial(
+//            new Supplier<DateFormat>() {
+//                @Override
+//                public DateFormat get() {
+//                    return new SimpleDateFormat();
+//                }
+//            }
+//    );
 
     public static Date parse(String dateStr) {
         Date date = null;
         try {
             Thread.sleep(3000);
-            date = THREAD_LOCK.get().parse(dateStr);
+            DateFormat dateFormat = THREAD_LOCK.get();
+            int i = System.identityHashCode(dateFormat);
+            System.out.println(i);
+            date = dateFormat.parse(dateStr);
+            THREAD_LOCK.remove();
         } catch (Exception e) {
             e.printStackTrace();
         }
